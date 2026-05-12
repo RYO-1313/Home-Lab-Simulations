@@ -185,7 +185,7 @@ The most critical alert is **Windows Logon Success** appearing after a flood of 
 
 The full incident report for this simulation is documented in:
 
-[INC-001 — SSH Brute Force Incident Report](/Documents/INC-001_SSH_BruteForce.pdf)
+[INC-001 — SSH Brute Force Incident Report](Documents /INC-001_SSH_BruteForce.pdf)
 
 <br>
 
