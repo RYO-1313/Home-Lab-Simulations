@@ -72,7 +72,8 @@ On Kali, run:
 ping 192.168.11.116
 ```
 
-<!-- Screenshot: Kali pinging Windows — 6 packets sent, 6 received, 0% packet loss -->
+<img width="560" height="305" alt="Screenshot From 2026-05-11 18-34-01" src="https://github.com/user-attachments/assets/a416a492-5c68-412d-9989-ffedc86e0f70" />
+
 
 6 packets transmitted, 6 received, 0% packet loss confirms the machines can communicate.
 
@@ -96,7 +97,7 @@ hydra -l HAL -P passwords.txt ssh://192.168.11.116 -t 4 -v
 | `-t 4` | 4 parallel threads |
 | `-v` | Verbose output |
 
-<!-- Screenshot: Hydra output showing successful login — login: HAL  password: 2007 -->
+
 
 Hydra v9.6 completed the attack in **8 seconds** (13:34:33 → 13:34:41), finding the correct credentials:
 
@@ -111,7 +112,8 @@ Hydra v9.6 completed the attack in **8 seconds** (13:34:33 → 13:34:41), findin
 
 ### Dashboard before the attack
 
-<!-- Screenshot: Splunk Wazuh Security Overview dashboard — 78 total alerts, flat timeline -->
+<img width="1912" height="863" alt="Screenshot From 2026-05-11 18-22-22" src="https://github.com/user-attachments/assets/bb9f1524-b112-4efa-ae0e-4fd69cf1e0ab" />
+
 
 Before the attack the dashboard showed **78 total alerts** with a flat, quiet timeline.
 
@@ -119,7 +121,8 @@ Before the attack the dashboard showed **78 total alerts** with a flat, quiet ti
 
 ### Dashboard after the attack
 
-<!-- Screenshot: Splunk Wazuh Security Overview dashboard — 297 total alerts, sharp spike at 5:00 PM -->
+<img width="1912" height="863" alt="Screenshot From 2026-05-11 18-24-24" src="https://github.com/user-attachments/assets/1ab4ed33-1725-476c-953d-a8a9b49c3bcd" />
+
 
 After the attack the total jumped to **297 alerts** with a visible spike on the timeline — a clear sign of sudden abnormal activity.
 
@@ -133,7 +136,8 @@ Run the following search in Splunk Search and Reporting:
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | stats count by rule.description | sort -count
 ```
 
-<!-- Screenshot: Splunk search results showing full alert breakdown -->
+<img width="1912" height="861" alt="Screenshot From 2026-05-11 18-25-12" src="https://github.com/user-attachments/assets/8018f22f-1cf0-4300-95df-145817a36215" />
+
 
 <br>
 
@@ -155,7 +159,8 @@ index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | stats count by rule.descript
 | Special privileges assigned to new logon | 52 | Elevated privileges granted post-compromise |
 | Non service account logged off | 42 | Active sessions established on victim machine |
 
-<!-- Screenshot: Splunk results showing Windows Logon Success and privilege escalation alerts -->
+<img width="1912" height="861" alt="Screenshot From 2026-05-11 18-27-07" src="https://github.com/user-attachments/assets/803e3a6d-95ff-4303-94e0-a3da4ec36905" />
+
 
 <br>
 
