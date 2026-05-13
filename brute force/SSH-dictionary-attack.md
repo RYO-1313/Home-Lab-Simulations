@@ -61,7 +61,7 @@ ipconfig
 
 <img width="1366" height="768" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/1015e63e-918d-4780-b08c-e72660042518" />
 
-
+The victime IP is `192.168.11.116`
 <br>
 
 ---
