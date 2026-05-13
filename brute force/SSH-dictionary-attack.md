@@ -46,6 +46,9 @@ netstat -an | findstr 22
 
 You should see port 22 in the output with a `LISTENING` state.
 
+<img width="1366" height="768" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/87d69010-b725-4781-887a-62f371dc50c5" />
+
+
 <br>
 
 ### Get the Windows IP address
@@ -56,7 +59,8 @@ In CMD as Administrator:
 ipconfig
 ```
 
-<!-- Screenshot: Windows ipconfig output showing IP 192.168.11.116 -->
+<img width="1366" height="768" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/1015e63e-918d-4780-b08c-e72660042518" />
+
 
 <br>
 
