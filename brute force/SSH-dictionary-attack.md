@@ -34,6 +34,14 @@ The Windows machine needs to be running an SSH server so Hydra has something to 
 
 **Option B — Using CMD as Administrator:**
 
+**Install OpenSSH Server:**
+
+```cmd
+dism /online /Add-Capability /CapabilityName:OpenSSH.Server~~~~0.0.1.0
+```
+
+**Start SSH:**
+
 ```cmd
 net start sshd
 ```
