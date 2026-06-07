@@ -1,69 +1,34 @@
-# Home Lab Simulations
+# 🏠 Home Lab Simulations
 
-![Security](https://img.shields.io/badge/Category-Attack%20Simulations-red?style=flat-square)
-![Focus](https://img.shields.io/badge/Current%20Focus-Brute%20Force-orange?style=flat-square)
-![Documentation](https://img.shields.io/badge/Documentation-NIST%20%7C%20SANS-blue?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Active-green?style=flat-square)
+A personal cybersecurity home lab where I simulate real attacker techniques end-to-end — from the first reconnaissance probe to covering tracks — and practice detecting every stage using Wazuh and Splunk.
 
-<br>
-
-## About
-
-I am a self-taught cybersecurity student with a clear goal — break into the field as a SOC Analyst and use that as the foundation for a long-term career in offensive security. Every simulation in this repository is a deliberate step toward that goal: building real detection experience, practicing incident response, and understanding attacks from both sides.
-
-The lab environment powering these simulations is fully documented, configured, and maintained in a separate repository: [home-soc-lab](https://github.com/RYO-1313/home-soc-lab). It runs Splunk as a SIEM and Wazuh as an EDR on a Debian 13 machine, connected to Windows and Kali Linux endpoints over a local bridged network.
-
-<br>
+Each simulation is a standalone exercise mapped to the MITRE ATT&CK framework. Together, the first five form a complete attack chain: one attacker, one target, one full intrusion lifecycle.
 
 ---
 
-## Purpose
+## ⚔️ The Story So Far
 
-This repository documents controlled attack simulations performed in an isolated local network. The goal is not just to run attacks — it is to observe how they look from a defender's perspective, practice triage and incident response, and produce professional documentation that reflects real SOC workflows.
+A single attacker moves through a Windows target from first contact to evasion — and gets caught at every step.
 
-Each simulation is broken into three sides:
+| # | Simulation | What Happens | MITRE |
+|---|-----------|-------------|-------|
+| SIM_1 | [Port Scan Detection](./SIM_1_PortScan/) | Attacker maps the network, Wazuh catches the probe | T1046 |
+| SIM_2 | [SSH Brute Force](./SIM_2_SSHBruteForce/) | Attacker forces their way in, Splunk catches the breach | T1110.001 |
+| SIM_3 | [Privilege Escalation](./SIM_3_PrivilegeEscalation/) | Attacker climbs to admin, Event IDs tell the story | T1078 / T1136 |
+| SIM_4 | [Persistence](./SIM_4_Persistence/) | Attacker plants two backdoors, both detected | T1053.005 / T1547.001 |
+| SIM_5 | [Log Clearing](./SIM_5_LogClearing/) | Attacker tries to erase evidence — the SIEM already has it | T1070.001 |
 
-**Victim Side** — target machine configuration, exposed services, and security posture before the attack.
-
-**Attacker Side** — tools used, commands executed, and the technique being simulated.
-
-**Manager Side** — how Wazuh and Splunk detected the attack, what the alerts looked like, and the investigation process inside the SIEM.
-
-<br>
-
----
-
-## Current Focus — Brute Force Attacks
-
-The repository is currently focused on brute force and credential attacks. This covers SSH brute force using Hydra, Windows logon failures, detection patterns in Wazuh, and how those alerts surface inside Splunk dashboards.
-
-Future simulations will expand into other attack categories as the lab grows.
-
-<br>
+More simulations coming as the lab grows.
 
 ---
 
-## Simulations
+## 🛠️ Lab Stack
 
-| ID | Attack Type | Target | Tool | Status |
-|----|------------|--------|------|--------|
-| [INC-001](Documents/INC-001_SSH_BruteForce.pdf) | SSH Brute Force | Windows (DESKTOP-OGUH4L2) | Hydra v9.6 | ✅ Complete |
-
-<br>
-
----
-
-## Documentation Template
-
-Every simulation in this repository is documented using a structured incident report based on:
-
-- **NIST SP 800-61 Rev.3** — Computer Security Incident Handling Guide
-- **SANS Incident Handler's Handbook** — Incident response phases and best practices
-
-Reports cover incident identification, attack timeline, indicators of compromise, MITRE ATT&CK mapping, triage decision, containment actions, lessons learned, and a full analyst narrative.
-
-<br>
+- **Attacker:** Kali Linux
+- **Victim:** Windows 10
+- **SIEM:** Wazuh + Splunk
+- **Network:** Isolated local lab
 
 ---
 
-> This is an active, growing repository. Simulations and documentation are added as the lab expands.
+*by [ryo](https://github.com/RYO-1313)*
