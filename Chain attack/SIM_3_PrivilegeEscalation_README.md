@@ -75,7 +75,8 @@ ssh victim@192.168.11.116
 
 Password: `Password123`
 
-📸 `[SCREENSHOT — Successful SSH login as victim]`
+<img width="1917" height="945" alt="Screenshot From 2026-05-31 21-27-39" src="https://github.com/user-attachments/assets/f204e23d-7eae-4ec8-9025-9d95c578b804" />
+
 
 Confirm who we are logged in as:
 ```bash
@@ -87,7 +88,8 @@ Check current group memberships:
 whoami /groups
 ```
 
-📸 `[SCREENSHOT — whoami /groups output showing victim's limited group membership]`
+<img width="1917" height="945" alt="Screenshot From 2026-05-31 22-17-04" src="https://github.com/user-attachments/assets/0cb80d04-fb92-4586-adce-23b51711ab3b" />
+
 
 > At this point, the attacker is inside the machine but operating with minimal permissions. The target is `BUILTIN\Administrators` — the group that grants full control. `Mandatory Label\High Mandatory Level` is the marker of admin territory. Neither is present yet.
 
@@ -107,7 +109,8 @@ Attempt to create a file (this will fail):
 net user hacker Password123 /add
 ```
 
-📸 `[SCREENSHOT — Access denied error when attempting to create a user as victim]`
+<img width="1917" height="945" alt="Screenshot From 2026-05-31 22-14-30" src="https://github.com/user-attachments/assets/df9776e0-36f3-4b1b-bfe4-edb8ad376917" />
+
 
 > The `Access Denied` error is the access boundary working as intended. It also generates a Windows audit failure event that Wazuh will catch. This failed attempt is part of the evidence trail.
 
@@ -123,7 +126,8 @@ powershell -command "Add-LocalGroupMember -Group Administrators -Member victim"
 
 > This command attempts to elevate `victim` directly into the Administrators group. On a properly hardened system this should fail without admin credentials — but the attempt itself is logged.
 
-📸 `[SCREENSHOT — Splunk alert triggered by the escalation attempt]`
+<img width="1917" height="920" alt="Screenshot From 2026-06-01 01-10-39" src="https://github.com/user-attachments/assets/fab6be7a-5937-4866-b098-dcb50652743b" />
+
 
 Wazuh catches this event and forwards it to Splunk. The alert fires even on a failed attempt — any account trying to add itself to a privileged group is suspicious regardless of success.
 
@@ -133,7 +137,7 @@ Wazuh catches this event and forwards it to Splunk. The alert fires even on a fa
 
 For the second stage of this simulation, escalation is performed using the admin account (`HAL`) to show what a successful escalation event looks like in the SIEM.
 
-> In a real attack, this would happen if the attacker had already obtained the admin credentials — for example, through the brute force in SIM_2.
+> In a real attack, this would happen if the attacker had already obtained the admin credentials — for example, through the brute force.
 
 **On the Windows machine, using CMD as HAL (admin):**
 
@@ -159,8 +163,8 @@ In **Splunk Search and Reporting**, run:
 ```
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | search "4720" OR "4732" OR "hacker" | table _time, rule.description, data.win.eventdata.subjectUserName, data.win.eventdata.targetUserName, rule.level | sort -_time
 ```
+<img width="1917" height="920" alt="Screenshot From 2026-06-01 02-07-14" src="https://github.com/user-attachments/assets/df5825e6-096f-4095-8e1f-400297c7e30f" />
 
-📸 `[SCREENSHOT — Splunk results showing the escalation event chain]`
 
 ### What the alerts tell us
 
@@ -174,7 +178,6 @@ index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | search "4720" OR "4732" OR "
 | User Account Created | `HAL` created `hacker` | New account creation by a compromised admin is a red flag |
 | Administrators Group Changed | `hacker` added to Administrators | Privilege escalation confirmed — attacker now has full control |
 
-📸 `[SCREENSHOT — Alert detail showing HAL created hacker and added it to Administrators]`
 
 > **The key signal:** Event `4720` followed by `4732` in rapid succession, triggered by the same user, is the textbook signature of an attacker creating a persistent admin backdoor. These two events together tell the complete story — a new account was created and immediately elevated.
 
