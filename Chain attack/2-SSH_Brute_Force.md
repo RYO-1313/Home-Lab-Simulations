@@ -1,6 +1,6 @@
 # 🔐 SSH Brute Force Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / Chain attack / SSH-BruteForce
+> **Path:** Home-Lab-Simulations / Chain attack / 2-SSH-BruteForce
 
 ---
 
