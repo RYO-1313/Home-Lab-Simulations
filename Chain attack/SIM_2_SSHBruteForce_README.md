@@ -17,7 +17,6 @@ In this simulation, I launched a live dictionary attack using Hydra from Kali Li
 
 This maps directly to **MITRE ATT&CK T1110.001 — Brute Force: Password Guessing**.
 
-> **Note:** This is a controlled lab simulation performed on an isolated local network. All machines are owned and operated by the analyst. Never perform this against systems you do not own.
 
 ---
 
