@@ -1,6 +1,6 @@
 # 🔍 Port Scan Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / Chain attack / PortScan
+> **Path:** Home-Lab-Simulations / Chain attack / 1-Port_Scan
 
 ---
 
