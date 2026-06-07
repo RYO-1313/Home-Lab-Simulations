@@ -50,7 +50,6 @@ Before anything else, confirm Kali can reach the Windows target.
 ping 192.168.11.116
 ```
 
-📸 `[SCREENSHOT — Ping output showing 0% packet loss]`
 
 6 packets transmitted, 6 received, 0% packet loss — machines can communicate.
 
