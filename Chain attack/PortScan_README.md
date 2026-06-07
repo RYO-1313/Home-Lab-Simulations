@@ -1,10 +1,10 @@
 # 🔍 SIM_1 — Port Scan Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / SIM_1 / PortScan
+> **Path:** Home-Lab-Simulations / Chain attack / PortScan
 
 ---
 
-> ➡️ Next Simulation: [SIM_2 — SSH Brute Force](../SSH-BruteForce/)
+> ➡️ Next Simulation: [Chain attack — SSH Brute Force](../SSH-BruteForce/)
 
 ---
 
