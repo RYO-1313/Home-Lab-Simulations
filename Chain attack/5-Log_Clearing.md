@@ -1,10 +1,10 @@
-# 🧹 SIM_5 — Defense Evasion: Log Clearing Detection with Wazuh + Splunk
+# 🧹 5 — Defense Evasion: Log Clearing Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / SIM_5 / LogClearing
+> **Path:** Home-Lab-Simulations / Chain attack / 5-Log_Clearing
 
 ---
 
-> ⬅️ Previous Simulation: [SIM_4 — Persistence](../Persistence/)
+> ⬅️ Previous Simulation: [Chain attack — Persistence](../Persistence/)
 
 ---
 
@@ -15,8 +15,6 @@ An attacker who has moved through reconnaissance, initial access, privilege esca
 In this simulation, I cleared both the Security and System logs on the compromised Windows machine from a remote Kali SSH session, then confirmed that Wazuh and Splunk caught the clearing event itself. The goal was to demonstrate a core defender's truth: **the act of deleting evidence is itself evidence.**
 
 This maps directly to **MITRE ATT&CK T1070.001 — Indicator Removal: Clear Windows Event Logs**.
-
-> **Note:** This is a controlled lab simulation performed on an isolated local network. All machines are owned and operated by the analyst. Never perform this against systems you do not own.
 
 ---
 
@@ -43,7 +41,8 @@ When Windows Event IDs `1102` (Security log cleared) or `104` (System log cleare
 
 ## 📊 Dashboard Before the Attack
 
-📸 `[SCREENSHOT — Splunk dashboard showing alert state before log clearing]`
+<img width="1917" height="914" alt="Screenshot From 2026-06-03 15-13-57" src="https://github.com/user-attachments/assets/202cc0be-2bcc-4f62-a358-4261b07aa557" />
+
 
 The dashboard reflects the accumulated alerts from the full attack chain — every event from the port scan through persistence is still visible. This is what the attacker wants to erase.
 
@@ -63,8 +62,6 @@ Clear the **System log** — where system-level events including service starts 
 wevtutil cl System
 ```
 
-📸 `[SCREENSHOT — Kali SSH session showing both wevtutil commands executed]`
-
 > `wevtutil cl` (clear log) is a built-in Windows utility. An attacker with admin access can run it silently in seconds, wiping the entire event history on the local machine. What they don't account for is that Wazuh has already forwarded those events to the SIEM — and that the clearing action itself generates new events.
 
 ---
@@ -77,23 +74,24 @@ In **Splunk Search and Reporting**, run:
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" rule.id="63103" | table _time, rule.description, data.win.logFileCleared.subjectUserName, rule.level | sort -_time
 ```
 
-📸 `[SCREENSHOT — Splunk results showing the log clearing alert]`
+<img width="1917" height="892" alt="Screenshot From 2026-06-03 15-31-39" src="https://github.com/user-attachments/assets/a65fa2b6-f0f6-4607-8fe6-006f230cb9f2" />
+
 
 ### What the alert tells us
 
 | Windows Event ID | Log | What It Means |
 |-----------------|-----|---------------|
 | `1102` | Security | The Security audit log was cleared |
-| `104` | System | The System log was cleared |
 
 | Field | Value |
 |-------|-------|
 | Rule Level | High |
-| Triggered By | The `hacker` admin account (from SIM_3) |
+| Triggered By | The `hacker` admin account (from 3-Privilege_Escalation) |
 | Wazuh Rule | 63103 |
 | MITRE Tag | T1070.001 — Indicator Removal |
 
-📸 `[SCREENSHOT — Alert detail showing which user cleared the logs and the exact timestamp]`
+<img width="1917" height="920" alt="Screenshot From 2026-06-03 15-33-33" src="https://github.com/user-attachments/assets/8affa99b-9bc9-425f-b260-96a3c2eb332c" />
+
 
 > **The critical insight:** The attacker cleared the logs on the Windows machine — but those events had already been shipped to Wazuh and Splunk. The local machine is dark, but the SIEM has the full record. Furthermore, the clearing event itself (`1102` and `104`) is now in the SIEM, timestamped, with the username of whoever did it. The attacker erased evidence and left a new piece of evidence in the process.
 
@@ -101,7 +99,8 @@ index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" rule.id="63103" | table _time,
 
 ## 📊 Dashboard After the Attack
 
-📸 `[SCREENSHOT — Splunk dashboard after log clearing, showing the new alert spike]`
+<img width="1917" height="920" alt="Screenshot From 2026-06-03 15-33-33" src="https://github.com/user-attachments/assets/24bd9a2e-8eff-40f3-b9a4-2afbc584dc81" />
+
 
 The dashboard shows new activity — the log clearing events are now the most recent alerts, sitting on top of the full kill chain we've been building since SIM_1.
 
@@ -133,11 +132,11 @@ This simulation is the final stage of a complete attacker lifecycle lab:
 
 | # | Simulation | MITRE Technique |
 |---|-----------|----------------|
-| SIM_1 | [Port Scan Detection](../PortScan/) | T1046 — Network Service Discovery |
-| SIM_2 | [SSH Brute Force](../SSH-BruteForce/) | T1110.001 — Brute Force: Password Guessing |
-| SIM_3 | [Privilege Escalation](../PrivilegeEscalation/) | T1078 / T1136 — Valid Accounts / Create Account |
-| SIM_4 | [Persistence](../Persistence/) | T1053.005 / T1547.001 — Scheduled Task / Registry Run Key |
-| SIM_5 | **Log Clearing** ← You are here | T1070.001 — Indicator Removal |
+| 1 | [Port Scan Detection](../PortScan/) | T1046 — Network Service Discovery |
+| 2 | [SSH Brute Force](../SSH-BruteForce/) | T1110.001 — Brute Force: Password Guessing |
+| 3 | [Privilege Escalation](../PrivilegeEscalation/) | T1078 / T1136 — Valid Accounts / Create Account |
+| 4 | [Persistence](../Persistence/) | T1053.005 / T1547.001 — Scheduled Task / Registry Run Key |
+| 5 | **Log Clearing** ← You are here | T1070.001 — Indicator Removal |
 
 ---
 
