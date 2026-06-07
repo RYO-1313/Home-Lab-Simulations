@@ -123,7 +123,6 @@ Save and close, then restart the agent to apply the change:
 net stop WazuhSvc && net start WazuhSvc
 ```
 
-📸 `[SCREENSHOT — ossec.conf showing the new localfile block]`
 
 ---
 
@@ -170,7 +169,6 @@ Restart the Wazuh Manager to apply:
 sudo systemctl restart wazuh-manager
 ```
 
-📸 `[SCREENSHOT — local_rules.xml showing the new rule block]`
 
 > **How the rule works:** Rule `100002` catches each individual DROP event. Rule `100003` acts as a frequency counter — if the same source IP triggers `100002` ten or more times within 5 seconds, Wazuh escalates to a level-10 alert tagged with MITRE T1046. This is the port scan detection trigger.
 
@@ -191,7 +189,8 @@ nmap -sS 192.168.11.116
 | `-sS` | SYN scan (stealth scan) — sends SYN packets without completing the TCP handshake |
 | `192.168.11.116` | Target IP (Windows machine) |
 
-📸 `[SCREENSHOT — Nmap output showing open ports discovered on the target]`
+<img width="1917" height="942" alt="Screenshot From 2026-05-30 16-39-21" src="https://github.com/user-attachments/assets/90bfb543-8087-46e1-ba5f-f46fccbfdb34" />
+
 
 The scan completes and returns a list of open ports. On the Windows side, every probe that hit a closed or filtered port generated a firewall DROP entry — exactly what our rules are watching for.
 
@@ -201,13 +200,15 @@ The scan completes and returns a list of open ports. On the Windows side, every 
 
 ### Dashboard before the attack
 
-📸 `[SCREENSHOT — Splunk dashboard before the scan, baseline alert count, flat timeline]`
+<img width="1917" height="919" alt="Screenshot From 2026-05-30 16-42-03" src="https://github.com/user-attachments/assets/e0066afd-e775-42c3-a722-40dea5bc3f46" />
+<img width="1917" height="912" alt="Screenshot From 2026-05-30 16-19-46" src="https://github.com/user-attachments/assets/6d155f0c-0983-4919-826e-a2becc19d9ea" />
+
 
 The dashboard shows a quiet baseline — normal background noise with no unusual spikes.
 
 ### Dashboard after the attack
 
-📸 `[SCREENSHOT — Splunk dashboard after the scan, visible spike in the alert timeline]`
+
 
 After the scan, a sharp spike appears on the timeline. This is the visual signature of a port scan: a sudden burst of DROP events from a single source in a very short window.
 
@@ -221,9 +222,11 @@ In **Splunk Search and Reporting**, run:
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" rule.id=100003
 ```
 
-📸 `[SCREENSHOT — Splunk search results showing the port scan alert]`
+<img width="1917" height="920" alt="Screenshot From 2026-05-30 17-17-38" src="https://github.com/user-attachments/assets/b24f53b5-81a7-4850-a1f2-0aac063c6577" />
+<img width="1917" height="920" alt="Screenshot From 2026-05-30 17-17-47" src="https://github.com/user-attachments/assets/c2d4ffb3-64b8-457b-b93f-3f0851a443bd" />
+<img width="1917" height="920" alt="Screenshot From 2026-05-30 17-17-55" src="https://github.com/user-attachments/assets/1342ed14-a2f2-4a78-965a-485c9ee3bd12" />
 
-📸 `[SCREENSHOT — Alert detail view showing source IP, timestamp, and rule description]`
+
 
 ### What the alert tells us
 
