@@ -192,7 +192,7 @@ nmap -sS 192.168.11.116
 <img width="1917" height="942" alt="Screenshot From 2026-05-30 16-39-21" src="https://github.com/user-attachments/assets/90bfb543-8087-46e1-ba5f-f46fccbfdb34" />
 
 
-The scan completes and returns a list of open ports. On the Windows side, every probe that hit a closed or filtered port generated a firewall DROP entry — exactly what our rules are watching for.
+The scan completes and returns a list of open ports , what matter most is port 22. On the Windows side, every probe that hit a closed or filtered port generated a firewall DROP entry — exactly what our rules are watching for.
 
 ---
 
@@ -201,14 +201,13 @@ The scan completes and returns a list of open ports. On the Windows side, every 
 ### Dashboard before the attack
 
 <img width="1917" height="919" alt="Screenshot From 2026-05-30 16-42-03" src="https://github.com/user-attachments/assets/e0066afd-e775-42c3-a722-40dea5bc3f46" />
-<img width="1917" height="912" alt="Screenshot From 2026-05-30 16-19-46" src="https://github.com/user-attachments/assets/6d155f0c-0983-4919-826e-a2becc19d9ea" />
 
 
 The dashboard shows a quiet baseline — normal background noise with no unusual spikes.
 
 ### Dashboard after the attack
 
-
+<img width="1917" height="912" alt="Screenshot From 2026-05-30 16-19-46" src="https://github.com/user-attachments/assets/6d155f0c-0983-4919-826e-a2becc19d9ea" />
 
 After the scan, a sharp spike appears on the timeline. This is the visual signature of a port scan: a sudden burst of DROP events from a single source in a very short window.
 
