@@ -17,7 +17,6 @@ In this simulation, I created a low-privilege user (`victim`) on the Windows tar
 
 This maps directly to **MITRE ATT&CK T1078 — Valid Accounts** and **T1136 — Create Account**.
 
-> **Note:** This is a controlled lab simulation performed on an isolated local network. All machines are owned and operated by the analyst. Never perform this against systems you do not own.
 
 ---
 
