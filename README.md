@@ -1,33 +1,43 @@
 # 🏠 Home Lab Simulations
 
-A personal cybersecurity home lab where I simulate real attacker techniques end-to-end — from the first reconnaissance probe to covering tracks — and practice detecting every stage using Wazuh and Splunk.
+![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-Mapped-red?style=for-the-badge&logo=target&logoColor=white)
+![Simulations](https://img.shields.io/badge/Simulations-5-blue?style=for-the-badge&logo=flask&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Kali%20Linux-informational?style=for-the-badge&logo=linux&logoColor=white)
+![SIEM](https://img.shields.io/badge/SIEM-Wazuh%20%2B%20Splunk-purple?style=for-the-badge&logo=elastic&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-SOC%20%7C%20Blue%20Team-darkblue?style=for-the-badge&logo=shield&logoColor=white)
 
-Each simulation is a standalone exercise mapped to the MITRE ATT&CK framework. Together, the first five form a complete attack chain: one attacker, one target, one full intrusion lifecycle.
+A hands-on cybersecurity lab where I simulate real attacker behavior end-to-end — from the first network probe to covering tracks — and detect every stage using industry-standard SIEM tools.
 
----
-
-## ⚔️ The Story So Far
-
-A single attacker moves through a Windows target from first contact to evasion — and gets caught at every step.
-
-| # | Simulation | What Happens | MITRE |
-|---|-----------|-------------|-------|
-| SIM_1 | [Port Scan Detection](./SIM_1_PortScan/) | Attacker maps the network, Wazuh catches the probe | T1046 |
-| SIM_2 | [SSH Brute Force](./SIM_2_SSHBruteForce/) | Attacker forces their way in, Splunk catches the breach | T1110.001 |
-| SIM_3 | [Privilege Escalation](./SIM_3_PrivilegeEscalation/) | Attacker climbs to admin, Event IDs tell the story | T1078 / T1136 |
-| SIM_4 | [Persistence](./SIM_4_Persistence/) | Attacker plants two backdoors, both detected | T1053.005 / T1547.001 |
-| SIM_5 | [Log Clearing](./SIM_5_LogClearing/) | Attacker tries to erase evidence — the SIEM already has it | T1070.001 |
-
-More simulations coming as the lab grows.
+Each simulation is built in an isolated local environment using **Kali Linux**, **Windows**, **Wazuh**, and **Splunk**. Every technique is mapped to the **MITRE ATT&CK framework**, the same reference used by SOC teams worldwide to classify and respond to threats.
 
 ---
 
-## 🛠️ Lab Stack
+## 🎯 What This Lab Demonstrates
 
-- **Attacker:** Kali Linux
-- **Victim:** Windows 10
-- **SIEM:** Wazuh + Splunk
-- **Network:** Isolated local lab
+This isn't a collection of isolated exercises. The simulations in this repo follow a **complete attacker lifecycle** — the same sequence a real threat actor uses to infiltrate, control, and disappear inside a network.
+
+As a defender, understanding each stage of that lifecycle is what makes the difference between catching an attacker early and finding out after the damage is done.
+
+---
+
+## 🔗 Current Simulations — The Full Kill Chain
+
+| # | Simulation | MITRE Technique |
+|---|-----------|----------------|
+| 1 | [Port Scan Detection](1-Port_Scan.md) | T1046 — Network Service Discovery |
+| 2 | [SSH Brute Force](2-SSH_BruteForce.md) | T1110.001 — Brute Force: Password Guessing |
+| 3 | [Privilege Escalation](3-Privilege_Escalation.md) | T1078 / T1136 — Valid Accounts / Create Account |
+| 4 | [Persistence](4-Persistence.md) | T1053.005 / T1547.001 — Scheduled Task / Registry Run Key |
+| 5 | [Log Clearing](5-Log_Clearing.md) | T1070.001 — Indicator Removal |
+
+> More simulations are actively in development and will be added to this repo.
+
+---
+
+## 🛠️ Tools & Technologies
+
+`Kali Linux` · `Windows Server` · `Wazuh` · `Splunk` · `Nmap` · `Hydra` · `MITRE ATT&CK`
 
 ---
 
