@@ -4,7 +4,7 @@
 
 ---
 
-> ⬅️ Previous Simulation: [Chain attack — Persistence](../Persistence/)
+⬅️ Previous: [Persistence](4-Persistence.md)
 
 ---
 
