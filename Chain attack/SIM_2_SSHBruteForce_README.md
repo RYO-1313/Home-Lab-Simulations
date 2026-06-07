@@ -167,14 +167,14 @@ Hydra completed the attack in **8 seconds**, finding the correct credentials:
 <img width="1917" height="919" alt="Screenshot From 2026-05-30 16-42-03" src="https://github.com/user-attachments/assets/7b6f3e17-8418-45bd-bdfc-987a55967c6e" />
 
 
-Before the attack, the dashboard showed **78 total alerts** with a flat, quiet timeline — normal background noise.
+Before the attack, the dashboard showed **54 total alerts** with a flat, quiet timeline — normal background noise.
 
 ### Dashboard after the attack
 
 <img width="1917" height="920" alt="Screenshot From 2026-05-30 16-49-05" src="https://github.com/user-attachments/assets/e81a6f02-7ae3-417c-9e12-64cd8b9f8afd" />
 
 
-After the attack, the total jumped to **297 alerts** with a clear spike on the timeline — a sudden burst of abnormal activity that no analyst could miss.
+After the attack, the total jumped to **132 alerts** with a clear spike on the timeline — a sudden burst of abnormal activity that no analyst could miss.
 
 ---
 
