@@ -1,11 +1,11 @@
 # 🪝 4 — Persistence Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / Chain attack / Persistence
+> **Path:** Home-Lab-Simulations / Chain attack / 4-Persistence
 
 ---
 
-> ⬅️ Previous Simulation: [Chain attack — Privilege Escalation](../PrivilegeEscalation/)
-> ➡️ Next Simulation: [Chain attack — Defense Evasion: Log Clearing](../LogClearing/)
+⬅️ Previous: [Privilege Escalation](3-Privilege_Escalation.md)
+➡️ Next: [Log Clearing](5-Log_Clearing.md)
 
 ---
 
