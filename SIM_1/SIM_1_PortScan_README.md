@@ -16,8 +16,6 @@ In this simulation, I launched a live Nmap SYN scan from Kali Linux against a Wi
 
 This maps directly to **MITRE ATT&CK T1046 — Network Service Discovery**.
 
-> **Note:** This is a controlled lab simulation performed on an isolated local network. All machines are owned and operated by the analyst. Never perform this against systems you do not own.
-
 ---
 
 ## 🖥️ Lab Environment
