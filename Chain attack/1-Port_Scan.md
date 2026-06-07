@@ -4,7 +4,7 @@
 
 ---
 
-> ➡️ Next Simulation: [Chain attack — SSH Brute Force](../SSH-BruteForce/)
+> ➡️ Next Simulation: [SSH Brute Force](2-SSH_BruteForce.md)
 
 ---
 
