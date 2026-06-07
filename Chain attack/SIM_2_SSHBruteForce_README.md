@@ -150,7 +150,8 @@ hydra -l HAL -P passwords.txt ssh://192.168.11.116 -t 4 -v
 | `-t 4` | 4 parallel threads |
 | `-v` | Verbose output — shows each attempt in real time |
 
-📸 `[SCREENSHOT — Hydra output showing the attack in progress and cracked credentials]`
+<img width="1917" height="947" alt="Screenshot From 2026-05-30 16-48-43" src="https://github.com/user-attachments/assets/7af0cc30-3aec-40d0-af00-39dd5275e7c6" />
+
 
 Hydra completed the attack in **8 seconds**, finding the correct credentials:
 
@@ -163,13 +164,15 @@ Hydra completed the attack in **8 seconds**, finding the correct credentials:
 
 ### Dashboard before the attack
 
-📸 `[SCREENSHOT — Splunk dashboard before attack, 78 total alerts, flat timeline]`
+<img width="1917" height="919" alt="Screenshot From 2026-05-30 16-42-03" src="https://github.com/user-attachments/assets/7b6f3e17-8418-45bd-bdfc-987a55967c6e" />
+
 
 Before the attack, the dashboard showed **78 total alerts** with a flat, quiet timeline — normal background noise.
 
 ### Dashboard after the attack
 
-📸 `[SCREENSHOT — Splunk dashboard after attack, 297 total alerts, visible spike]`
+<img width="1917" height="920" alt="Screenshot From 2026-05-30 16-49-05" src="https://github.com/user-attachments/assets/e81a6f02-7ae3-417c-9e12-64cd8b9f8afd" />
+
 
 After the attack, the total jumped to **297 alerts** with a clear spike on the timeline — a sudden burst of abnormal activity that no analyst could miss.
 
@@ -183,7 +186,8 @@ In **Splunk Search and Reporting**, run:
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | stats count by rule.description | sort -count
 ```
 
-📸 `[SCREENSHOT — Splunk search results showing alert breakdown by rule description]`
+<img width="1917" height="920" alt="Screenshot From 2026-05-30 16-51-00" src="https://github.com/user-attachments/assets/29ef1b10-3b98-405c-ad4a-7792298ccc9d" />
+
 
 ### What the alerts tell us
 
@@ -200,8 +204,6 @@ index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | stats count by rule.descript
 |-------|-------|---------------|
 | Windows Logon Success | 12 | Hydra found the correct password — breach confirmed |
 | Special privileges assigned to new logon | 30 | Elevated privileges were granted post-compromise |
-
-📸 `[SCREENSHOT — Splunk alert detail showing logon success appearing after the flood of failures]`
 
 > **The critical signal:** A `Windows Logon Success` event appearing immediately after a flood of `Logon Failure` events from the same source. That sequence means one thing — the attacker is in. An L1 analyst seeing this pattern should treat it as an active incident and escalate immediately.
 
@@ -221,9 +223,9 @@ index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | stats count by rule.descript
 
 ## 📋 Key Takeaways
 
-- **Volume alone isn't the alert — the transition is.** 40 failures is suspicious. 40 failures followed by a success is an active breach. Training your eye to spot that pattern in a Splunk timeline is one of the most important skills an L1 analyst can develop.
+- **Volume alone isn't the alert — the transition is.** 40 failures is suspicious. 40 failures followed by a success is an active breach. 
 - **8 seconds to compromise.** A 20-entry wordlist cracked in under 10 seconds shows how fast brute force works against weak credentials. This reinforces why failed login thresholds and account lockout policies are critical defensive controls.
-- **Wazuh catches the full story.** From the first failed attempt to the privilege assignment post-login, the detection pipeline captured every stage of the attack. A complete alert chain like this is what enables proper incident reporting — you're not guessing what happened, you're reading it.
+- **Wazuh catches the full story.** From the first failed attempt to the privilege assignment post-login, the detection pipeline captured every stage of the attack. A complete alert chain like this is what enables proper incident reporting
 
 ---
 
