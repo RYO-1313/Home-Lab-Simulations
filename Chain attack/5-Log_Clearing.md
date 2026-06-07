@@ -133,7 +133,6 @@ This simulation is the final stage of a complete attacker lifecycle lab:
 | # | Simulation | MITRE Technique |
 |---|-----------|----------------|
 | # | Simulation | MITRE Technique |
-|---|-----------|----------------|
 | 1 | [Port Scan Detection](Chain%20attack/1-Port_Scan.md) | T1046 — Network Service Discovery |
 | 2 | [SSH Brute Force](Chain%20attack/2-SSH_BruteForce.md) | T1110.001 — Brute Force: Password Guessing |
 | 3 | [Privilege Escalation](Chain%20attack/3-Privilege_Escalation.md) | T1078 / T1136 — Valid Accounts / Create Account |
