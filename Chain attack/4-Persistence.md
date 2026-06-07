@@ -1,11 +1,11 @@
-# 🪝 SIM_4 — Persistence Detection with Wazuh + Splunk
+# 🪝 4 — Persistence Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / SIM_4 / Persistence
+> **Path:** Home-Lab-Simulations / Chain attack / Persistence
 
 ---
 
-> ⬅️ Previous Simulation: [SIM_3 — Privilege Escalation](../PrivilegeEscalation/)
-> ➡️ Next Simulation: [SIM_5 — Defense Evasion: Log Clearing](../LogClearing/)
+> ⬅️ Previous Simulation: [Chain attack — Privilege Escalation](../PrivilegeEscalation/)
+> ➡️ Next Simulation: [Chain attack — Defense Evasion: Log Clearing](../LogClearing/)
 
 ---
 
@@ -13,7 +13,7 @@
 
 After an attacker gets in and escalates privileges, their biggest fear is losing access. Sessions close, victims reboot, and IT teams find and delete compromised accounts. **Persistence** is the attacker's answer to that problem — planting mechanisms that survive reboots, account deletions, and standard cleanup, guaranteeing a way back in without needing to break in again.
 
-In this simulation, I planted two persistence mechanisms on the compromised Windows machine while operating as the `hacker` admin account created in SIM_3: a **Scheduled Task** disguised as a Windows system process, and a **Registry Run Key** that executes on every system startup. Both were detected by Wazuh and surfaced in Splunk.
+In this simulation, I planted two persistence mechanisms on the compromised Windows machine while operating as the `hacker` admin account created in 3-Privilege Escalation: a **Scheduled Task** disguised as a Windows system process, and a **Registry Run Key** that executes on every system startup. Both were detected by Wazuh and surfaced in Splunk.
 
 This maps directly to **MITRE ATT&CK T1053.005 — Scheduled Task** and **T1547.001 — Registry Run Keys / Startup Folder**.
 
