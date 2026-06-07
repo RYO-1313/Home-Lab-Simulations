@@ -58,7 +58,6 @@ ping 192.168.11.116
 ping 192.168.11.116
 ```
 
-📸 `[SCREENSHOT — Ping outputs confirming 0% packet loss across all three machines]`
 
 All machines are reachable. The lab is ready.
 
