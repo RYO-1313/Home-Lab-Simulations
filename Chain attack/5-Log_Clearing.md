@@ -130,9 +130,10 @@ The dashboard shows new activity — the log clearing events are now the most re
 
 This simulation is the final stage of a complete attacker lifecycle lab:
 
-**Full Simulation Series**
+## 🔗 Full Simulation Series
 
-|  | Simulation | MITRE Technique |
+| # | Simulation | MITRE Technique |
+|---|-----------|----------------|
 | 1 | [Port Scan Detection](1-Port_Scan.md) | T1046 — Network Service Discovery |
 | 2 | [SSH Brute Force](2-SSH_BruteForce.md) | T1110.001 — Brute Force: Password Guessing |
 | 3 | [Privilege Escalation](3-Privilege_Escalation.md) | T1078 / T1136 — Valid Accounts / Create Account |
