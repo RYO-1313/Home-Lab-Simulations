@@ -1,11 +1,11 @@
 # ⬆️ Chain attack — Privilege Escalation Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / Chain attack / PrivilegeEscalation
+> **Path:** Home-Lab-Simulations / Chain attack / 3-Privilege_Escalation
 
 ---
 
-> ⬅️ Previous Simulation: [Chain attack — SSH Brute Force](../SSH-BruteForce/)
-> ➡️ Next Simulation: [Chain attack — Persistence](../Persistence/)
+⬅️ Previous: [SSH Brute Force](2-SSH_Brute_Force.md)
+➡️ Next: [Persistence](4-Persistence.md)
 
 ---
 
