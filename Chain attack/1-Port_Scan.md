@@ -4,7 +4,7 @@
 
 ---
 
-> ➡️ Next Simulation: [SSH Brute Force](2-SSH_Brute_Force.md))
+> ➡️ Next Simulation: [SSH Brute Force](2-SSH_Brute_Force.md)
 
 ---
 
