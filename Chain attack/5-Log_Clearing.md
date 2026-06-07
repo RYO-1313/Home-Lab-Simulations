@@ -132,11 +132,13 @@ This simulation is the final stage of a complete attacker lifecycle lab:
 
 | # | Simulation | MITRE Technique |
 |---|-----------|----------------|
-| 1 | [Port Scan Detection](../PortScan/) | T1046 — Network Service Discovery |
-| 2 | [SSH Brute Force](../SSH-BruteForce/) | T1110.001 — Brute Force: Password Guessing |
-| 3 | [Privilege Escalation](../PrivilegeEscalation/) | T1078 / T1136 — Valid Accounts / Create Account |
-| 4 | [Persistence](../Persistence/) | T1053.005 / T1547.001 — Scheduled Task / Registry Run Key |
-| 5 | **Log Clearing** ← You are here | T1070.001 — Indicator Removal |
+| # | Simulation | MITRE Technique |
+|---|-----------|----------------|
+| 1 | [Port Scan Detection](Chain%20attack/1-Port_Scan.md) | T1046 — Network Service Discovery |
+| 2 | [SSH Brute Force](Chain%20attack/2-SSH_BruteForce.md) | T1110.001 — Brute Force: Password Guessing |
+| 3 | [Privilege Escalation](Chain%20attack/3-Privilege_Escalation.md) | T1078 / T1136 — Valid Accounts / Create Account |
+| 4 | [Persistence](Chain%20attack/4-Persistence.md) | T1053.005 / T1547.001 — Scheduled Task / Registry Run Key |
+| 5 | [Log Clearing](Chain%20attack/5-Log_Clearing.md) | T1070.001 — Indicator Removal |
 
 ---
 
