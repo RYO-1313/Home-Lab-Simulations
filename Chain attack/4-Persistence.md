@@ -17,7 +17,6 @@ In this simulation, I planted two persistence mechanisms on the compromised Wind
 
 This maps directly to **MITRE ATT&CK T1053.005 — Scheduled Task** and **T1547.001 — Registry Run Keys / Startup Folder**.
 
-> **Note:** This is a controlled lab simulation performed on an isolated local network. All machines are owned and operated by the analyst. Never perform this against systems you do not own.
 
 ---
 
