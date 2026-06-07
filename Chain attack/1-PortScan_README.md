@@ -1,4 +1,4 @@
-# 🔍 SIM_1 — Port Scan Detection with Wazuh + Splunk
+# 🔍 Port Scan Detection with Wazuh + Splunk
 
 > **Path:** Home-Lab-Simulations / Chain attack / PortScan
 
