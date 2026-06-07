@@ -57,13 +57,12 @@ Enable the Task Scheduler operational log:
 wevtutil set-log "Microsoft-Windows-TaskScheduler/Operational" /enabled:true
 ```
 
-📸 `[SCREENSHOT — CMD output confirming both commands executed successfully]`
-
 ---
 
 ## 📊 Dashboard Before the Attack
 
-📸 `[SCREENSHOT — Splunk dashboard showing baseline alert count before any persistence is planted]`
+<img width="1917" height="920" alt="Screenshot From 2026-06-02 20-34-31" src="https://github.com/user-attachments/assets/9e528cc2-096b-483e-aa00-129671dc0211" />
+
 
 The dashboard is quiet — no persistence-related alerts. This is our clean baseline.
 
@@ -82,8 +81,6 @@ Before planting persistence, verify the current user context on the Windows mach
 ```cmd
 whoami
 ```
-
-📸 `[SCREENSHOT — whoami output confirming we're running as the hacker admin account]`
 
 ### Step 2 — Create the Malicious Scheduled Task
 
@@ -105,7 +102,8 @@ Verify the task was created:
 schtasks /query /tn "WindowsUpdateService"
 ```
 
-📸 `[SCREENSHOT — schtasks query output confirming the task exists and its schedule]`
+<img width="1917" height="948" alt="Screenshot From 2026-06-03 15-10-33" src="https://github.com/user-attachments/assets/63bb69e7-2bc8-42e8-ba08-020526b55220" />
+
 
 ### Step 3 — Detect in Splunk
 
@@ -113,7 +111,8 @@ schtasks /query /tn "WindowsUpdateService"
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" rule.id="60228" | table _time, rule.description, data.win.eventdata.subjectUserName, data.win.eventdata.taskName, rule.level | sort -_time
 ```
 
-📸 `[SCREENSHOT — Splunk results showing the scheduled task creation alert]`
+<img width="1917" height="920" alt="Screenshot From 2026-06-02 21-25-37" src="https://github.com/user-attachments/assets/1f01c922-82db-4787-ba82-57c68d1b682b" />
+
 
 > **What to look for:** A new scheduled task created by a non-system user, with a name mimicking a Windows process, set to run at SYSTEM privilege on startup. That combination is a persistence flag. Legitimate IT tasks are typically deployed through Group Policy, not manually via CMD.
 
@@ -146,7 +145,8 @@ Verify the key was written:
 reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
 ```
 
-📸 `[SCREENSHOT — reg query output confirming WindowsSecurityUpdate is present in the Run key]`
+<img width="1917" height="948" alt="Screenshot From 2026-06-03 15-10-33" src="https://github.com/user-attachments/assets/31d81a4d-f1a2-4ce8-8463-394f44f76eb0" />
+
 
 ### Step 2 — Detect in Splunk
 
@@ -154,7 +154,8 @@ reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
 index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | search "WindowsSecurityUpdate" | table _time, rule.description, syscheck.path, syscheck.value_name, rule.level
 ```
 
-📸 `[SCREENSHOT — Splunk results showing the registry modification alert]`
+<img width="1917" height="896" alt="Screenshot From 2026-06-03 15-11-45" src="https://github.com/user-attachments/assets/62d0a5b2-e17c-4bcb-bc13-5ff608862168" />
+
 
 > **What to look for:** A modification to `HKLM\...\CurrentVersion\Run` by a non-administrative process or an unexpected user account. Wazuh's FIM (File Integrity Monitoring) catches registry changes in real time. A new value appearing here outside of a known software installation is a persistence indicator that warrants immediate investigation.
 
@@ -162,7 +163,8 @@ index="wazuh-alerts" agent.name="DESKTOP-OGUH4L2" | search "WindowsSecurityUpdat
 
 ## 📊 Dashboard After the Attack
 
-📸 `[SCREENSHOT — Splunk dashboard after both persistence mechanisms are planted, showing new alerts]`
+<img width="1917" height="914" alt="Screenshot From 2026-06-03 15-13-57" src="https://github.com/user-attachments/assets/1d99f202-6b30-45c5-963b-773bf3d376b9" />
+
 
 Two new alert categories have appeared — one for the scheduled task creation, one for the registry modification. Both are now on the analyst's radar.
 
