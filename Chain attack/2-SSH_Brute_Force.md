@@ -4,8 +4,8 @@
 
 ---
 
-> ⬅️ Previous Simulation: [Chain attack — Port Scan Detection](../PortScan/)
-> ➡️ Next Simulation: [Chain attack — Privilege Escalation](../PrivilegeEscalation/)
+⬅️ Previous: [Port Scan Detection](1-Port_Scan.md)
+➡️ Next: [Privilege Escalation](3-Privilege_Escalation.md)
 
 ---
 
