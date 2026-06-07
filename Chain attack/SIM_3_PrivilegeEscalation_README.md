@@ -1,11 +1,11 @@
-# ⬆️ SIM_3 — Privilege Escalation Detection with Wazuh + Splunk
+# ⬆️ Chain attack — Privilege Escalation Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / SIM_3 / PrivilegeEscalation
+> **Path:** Home-Lab-Simulations / Chain attack / PrivilegeEscalation
 
 ---
 
-> ⬅️ Previous Simulation: [SIM_2 — SSH Brute Force](../SSH-BruteForce/)
-> ➡️ Next Simulation: [SIM_4 — Persistence](../Persistence/)
+> ⬅️ Previous Simulation: [Chain attack — SSH Brute Force](../SSH-BruteForce/)
+> ➡️ Next Simulation: [Chain attack — Persistence](../Persistence/)
 
 ---
 
