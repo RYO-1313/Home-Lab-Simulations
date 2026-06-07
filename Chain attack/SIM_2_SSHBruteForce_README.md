@@ -1,11 +1,11 @@
-# 🔐 SIM_2 — SSH Brute Force Detection with Wazuh + Splunk
+# 🔐 SSH Brute Force Detection with Wazuh + Splunk
 
-> **Path:** Home-Lab-Simulations / SIM_2 / SSH-BruteForce
+> **Path:** Home-Lab-Simulations / Chain attack / SSH-BruteForce
 
 ---
 
-> ⬅️ Previous Simulation: [SIM_1 — Port Scan Detection](../PortScan/)
-> ➡️ Next Simulation: [SIM_3 — Privilege Escalation](../PrivilegeEscalation/)
+> ⬅️ Previous Simulation: [Chain attack — Port Scan Detection](../PortScan/)
+> ➡️ Next Simulation: [Chain attack — Privilege Escalation](../PrivilegeEscalation/)
 
 ---
 
