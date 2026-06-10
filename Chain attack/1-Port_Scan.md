@@ -94,8 +94,6 @@ Verify the current state:
 netsh advfirewall show currentprofile | findstr "State"
 ```
 
-📸 `[SCREENSHOT — Output confirming firewall State is ON and logging is enabled]`
-
 ---
 
 ## ⚙️ Step 2 — Configure the Wazuh Agent
