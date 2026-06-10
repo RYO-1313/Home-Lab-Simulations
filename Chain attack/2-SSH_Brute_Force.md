@@ -84,14 +84,11 @@ Verify SSH is listening on port 22:
 netstat -an | findstr 22
 ```
 
-📸 `[SCREENSHOT — netstat output confirming port 22 LISTENING]`
 
 Confirm the Windows IP:
 ```cmd
 ipconfig
 ```
-
-📸 `[SCREENSHOT — ipconfig output showing 192.168.11.116]`
 
 ---
 
