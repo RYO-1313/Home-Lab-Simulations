@@ -59,8 +59,6 @@ Verify the account was created with limited privileges:
 net user victim
 ```
 
-📸 `[SCREENSHOT — net user output confirming victim account with no admin rights]`
-
 > The `victim` account is intentionally weak — it belongs only to the `analysts` group with no path to administrative resources. This is the starting state of the simulated attacker's access.
 
 ---
@@ -151,8 +149,6 @@ Verify the account was created and added to Administrators:
 ```cmd
 net user hacker
 ```
-
-📸 `[SCREENSHOT — net user hacker output confirming Administrators group membership]`
 
 ---
 
