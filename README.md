@@ -31,6 +31,8 @@ As a defender, understanding each stage of that lifecycle is what makes the diff
 | 4 | [Persistence](4-Persistence.md) | T1053.005 / T1547.001 — Scheduled Task / Registry Run Key |
 | 5 | [Log Clearing](5-Log_Clearing.md) | T1070.001 — Indicator Removal |
 
+<img width="1916" height="899" alt="Screenshot From 2026-06-03 22-59-22" src="https://github.com/user-attachments/assets/8515ea85-9b15-496c-8c45-54997cc6a28b" />
+
 > More simulations are actively in development and will be added to this repo.
 
 ---
